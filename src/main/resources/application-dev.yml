@@ -1,0 +1,42 @@
+server:
+  port: 9000
+  contextPath: /restapi
+logging:
+  file: logs/dev_app.log
+  level:
+    root: INFO
+    org.springframework.transaction.interceptor: TRACE
+    com.mydomain.restapi: DEBUG
+spring:
+  # Disable Spring DataSource auto-initialization
+  datasource:
+    initialize: false
+  mysql:
+    datasource:
+      url: jdbc:mysql://127.0.0.1:3306/testco_tech_db?autoReconnect=true&useSSL=false
+      username: htadmin
+      password: admin@ht
+      driver-class-name: com.mysql.jdbc.Driver
+  h2:
+    datasource:
+      url: jdbc:h2:~/h2/appdb
+      username: sa
+      password:
+      driver-class-name: org.h2.Driver
+    console:
+      enabled: true
+  jpa:
+    show-sql: true
+    generate-ddl: false
+    hibernate:
+      ddl-auto: validate
+security:
+  basic:
+    enabled: false
+management:
+  security:
+    enabled: false
+flyway:
+  enabled: true
+threadpooltaskexecutor:
+  corepoolsize: 10

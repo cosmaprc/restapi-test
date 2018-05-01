@@ -1,0 +1,32 @@
+server:
+  port: 9000
+  contextPath: /restapi
+logging:
+  file: logs/staging_app.log
+  level:
+    root: INFO
+spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/testco_tech_db
+    username: htadmin
+    password: admin@ht
+    hikari:
+      connection-timeout: 20000
+#      minimum-idle: 1
+      maximum-pool-size: 1
+      idle-timeout: 60000
+      max-lifetime: 90000
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+    hibernate:
+      naming-strategy: org.hibernate.cfg.Defau‌​ltNamingStrategy
+      ddl-auto: create 
+security:
+  basic:
+    enabled: false
+threadpooltaskexecutor:
+  corepoolsize: 10
+flyway:
+  enabled: false
